@@ -28,7 +28,8 @@ a {
 
 html, body {
   height: 100%;
-  overflow: hidden; 
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -36,15 +37,19 @@ body {
   background-color: var(--main-white-color);
   display: flex;
   flex-direction: column;
+
 }
+
 
 /* WRAPPER */
 .wrapper {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  overflow: hidden;
+  flex-grow: 1;
+
 }
+
+
 
 .wrapper > * {
   padding: 15px;
@@ -110,41 +115,43 @@ body {
 }
 
 #map {
-    position: relative;
-  height: 100%;
-    width: 100%;
-    display: -webkit-box;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-flex: 1;
-    flex-grow: 1;
-    min-height: 350px;
+  flex: 1;
+  position: relative;
+  width: 100%;
+  min-height: 350px;
 }
+
+
 
 
 
 /* SIDEBAR */
 #sidebar {
   position: absolute;
-  top: 40px;
+  top: 190px;
   right: 10px;
-  width: 220px;
-  max-height: calc(100vh - 120px);
+  width: 250px;
+  max-height: calc(100vh - 190px - 20px); /* viewport minus header + padding */
   background: white;
   overflow-y: auto;
+  overflow-x: hidden;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.15);
-  font-size: 12px;
+  border-radius: 8px;
+  padding: 30px 10px 10px 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  font-size: 13px;
   line-height: 1.4;
   z-index: 1000;
   display: none;
 }
+
+
+
+
+
+
+
+
 
 #sidebar.open {
   display: block;
@@ -152,7 +159,7 @@ body {
 }
 
 #toggleSidebar {
-  position: absolute;
+  position: absolute; 
   top: 10px;
   right: 10px;
   z-index: 1100;
@@ -164,6 +171,8 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+
 
 .site-entry {
   margin: 6px 0;
@@ -193,6 +202,26 @@ body {
   font-size: 14px;
   vertical-align: middle;
 }
+
+#closeSidebar {
+  position: absolute;
+  top: 5px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#closeSidebar:hover {
+  color: #000;
+}
+
+
+
 
 /* FOOTER */
 .page-footer,

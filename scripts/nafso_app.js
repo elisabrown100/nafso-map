@@ -1,4 +1,17 @@
 // NAFSO Map JS – Load Data from Google Sheets, Add Color-Coded Markers, Sidebar, and Home Button
+window.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.getElementById('sidebar');
+  const map = document.getElementById('map');
+
+  const mapHeight = map.offsetHeight;
+  const topOffset = 190; // to sit below the "Sites" button
+  const padding = 20;
+
+  sidebar.style.top = `${topOffset}px`;
+  sidebar.style.maxHeight = `${mapHeight - topOffset - padding}px`;
+});
+
+
 
 const map = L.map("map").setView([7.8731, 80.7718], 7); // Sri Lanka center
 const defaultCenter = [7.8731, 80.7718];
@@ -16,9 +29,18 @@ const markerLayer = L.layerGroup().addTo(map);
 const sheetURL = 'https://docs.google.com/spreadsheets/d/1QnM5FKyaFKYsLUxz2FO-k4dfBUvghDBJ1IIb-0FMgf4/gviz/tq?tqx=out:csv';
 
 // Create sidebar + toggle
-const sidebar = document.createElement("div");
-sidebar.id = "sidebar";
-document.getElementById("map").appendChild(sidebar);
+// Reference the existing sidebar in HTML
+const sidebar = document.getElementById("sidebar");
+
+// Create close button
+const closeBtn = document.createElement("button");
+closeBtn.id = "closeSidebar";
+closeBtn.innerHTML = "×";
+sidebar.appendChild(closeBtn);
+
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("open");
+});
 
 const toggleBtn = document.createElement("button");
 toggleBtn.id = "toggleSidebar";
@@ -135,4 +157,8 @@ function getMarkerStyle(category, type) {
     opacity: 1,
     fillOpacity: 0.6
   };
+
+
+
+
 }
