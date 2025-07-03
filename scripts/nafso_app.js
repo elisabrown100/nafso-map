@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", () => {
   sidebar.style.top = `${topOffset}px`;
   sidebar.style.maxHeight = `${mapHeight - topOffset - padding}px`;
 });
-
+ 
 
 
 const map = L.map("map").setView([7.8731, 80.7718], 7); // Sri Lanka center
@@ -26,7 +26,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 const markerLayer = L.layerGroup().addTo(map);
 
 // Google Sheets CSV export URL
-const sheetURL = 'https://docs.google.com/spreadsheets/d/1QnM5FKyaFKYsLUxz2FO-k4dfBUvghDBJ1IIb-0FMgf4/gviz/tq?tqx=out:csv';
+const sheetURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTmssABR5Kj4UNXGKqjBLK2bT2SwnjSXFJ0jDT7p6raSn9GUbbCKYKx1HjA-HnwsyVEtgpM7VaalSgs/pub?output=csv';
 
 // Create sidebar + toggle
 // Reference the existing sidebar in HTML
